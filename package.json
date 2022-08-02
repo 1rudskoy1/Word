@@ -1,0 +1,42 @@
+{
+  "name": "word",
+  "version": "1.0.0",
+  "description": "word on oop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1rudskoy1/Word.git"
+  },
+  "keywords": [
+    "Word",
+    "Js",
+    "JavaScript",
+    "OOP",
+    "Web-development",
+    "nativeJs"
+  ],
+  "author": "Ganiev Rustam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1rudskoy1/Word/issues"
+  },
+  "homepage": "https://github.com/1rudskoy1/Word#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^13.0.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
