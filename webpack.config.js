@@ -24,10 +24,10 @@ const jsLoaders = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: ['@babel/polyfill','./index.js',],
+  entry: ['@babel/polyfill','./main.js',],
   output: {
     filename: filename('js'),
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'app')
   },
   resolve: {
     extensions: ['.js'],
@@ -52,7 +52,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist')}
+        { from: path.resolve(__dirname, 'src/assets/img/favicon.ico'), to: path.resolve(__dirname, 'app')}
       ],
     }),
     new MiniCssExtractPlugin({
@@ -61,6 +61,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
