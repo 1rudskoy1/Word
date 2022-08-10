@@ -52,7 +52,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'src/assets/img/favicon.ico'), to: path.resolve(__dirname, 'app')}
+        { from: path.resolve(__dirname, './src/assets/img/favicon.ico'), to: path.resolve(__dirname, 'app')}
       ],
     }),
     new MiniCssExtractPlugin({

@@ -7,7 +7,7 @@ export class Word {
   }
 
   getRoot() {
-    const $root = $.create('div', 'excel')
+    const $root = $.create('div', 'word')
 
     this.components = this.components.map(Component => {
       const $el = $.create('div', Component.className)
@@ -23,5 +23,7 @@ export class Word {
   render() {
     this.$el.append(this.getRoot());
     this.components.forEach( component => component.init());
+
   }
+  
 }

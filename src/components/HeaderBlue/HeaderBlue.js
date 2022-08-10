@@ -1,15 +1,29 @@
 import {WordComponent} from "../../core/WordComponent"
+import {$} from '@core/Dom'
+import {date} from '@core/date'
 
 export class HeaderBlue extends WordComponent {
     static className = "Word-header";
 
+    constructor($root){
+        super($root, {
+            listeners: ['click']
+        })
+
+    }
+
+    onClick(){
+        let nameDown = $(event.target);
+        // nameDown.innerText("sd")
+        console.log(nameDown);
+    }
 
     toHTML(){
         return `<header>
         <div class="">
                 <div class="blue-menu">
                     <ul class="nav">
-                        <li class="nav__link">Название файла</li>
+                        <li class="nav__link">${date}</li>
                         <li class="nav__link"><i class="fa-solid fa-floppy-disk"></i></li>
                         <div class="left-right">
                             <li class="nav__link"><i class="fa-solid fa-arrow-rotate-left"></i></li>
@@ -23,5 +37,7 @@ export class HeaderBlue extends WordComponent {
                     </ul>
                 </div>
         `
+
     }
+      
 }
