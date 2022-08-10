@@ -1,16 +1,26 @@
 import {WordComponent} from "../../core/WordComponent"
-import {text} from "../../core/date"
+import {text, selected} from "../../core/date"
 export class Blank extends WordComponent {
     static className = "word-blank";
     constructor($root){
         super($root, {
-            listeners: ['input']
+            listeners: ['input', 'mouseup']
         })
     }
 
     onInput(e){
         let currentText = e.target.innerHTML;
         window.localStorage.setItem("Blank", currentText);
+
+    }
+    onMouseup(){
+        let cut = document.createRange();
+        cut.selectNode(document.querySelector('.blank'));
+        
+        let select = window.getSelection().toString();
+        selected.select = select;
+        console.log(selected.select);
+
     }
 
     toHTML(){
