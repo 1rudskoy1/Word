@@ -55,18 +55,6 @@ class Dom {
     css(styles = {}){
       Object.keys(styles).forEach(key => this.$el.style[key] = styles[key]);
     }
-    getName(){
-      let inner;
-      let link = location.search.substring(1);
-      let parame = link.split("&");
-      parame.forEach((par) => {
-         let name = par.split('=');
-         if(name[0] == 'name'){
-              inner = decodeURI(name[1])
-         }
-      }); 
-      return inner;
-    }
     innerText(value){
       this.$el.innerText = value; 
     }
@@ -75,6 +63,23 @@ class Dom {
   
   export function $(selector) {
     return new Dom(selector)
+  }
+
+  export function getName(){
+    let inner;
+    let link = location.search.substring(1);
+    if(link != ''){
+        let parame = link.split("&");
+        parame.forEach((par) => {
+          let name = par.split('=');
+          if(name[0] == 'name'){
+                inner = decodeURI(name[1])
+          }
+        }); 
+        return inner;
+    }else{
+      return "Новый документ"
+    }
   }
   
   $.create = (tagName, classes = '') => {

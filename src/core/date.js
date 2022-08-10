@@ -1,1 +1,1 @@
-export let date = "Сломанный бог"; 
+export let text = window.localStorage.Blank ? window.localStorage.Blank : ''; 
