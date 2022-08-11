@@ -4,7 +4,7 @@ export class Blank extends WordComponent {
     static className = "word-blank";
     constructor($root){
         super($root, {
-            listeners: ['input', 'mouseup']
+            listeners: ['input', 'mouseup', 'mousedown']
         })
     }
 
@@ -13,13 +13,20 @@ export class Blank extends WordComponent {
         window.localStorage.setItem("Blank", currentText);
 
     }
-    onMouseup(){
+    onMouseup(e){
         let cut = document.createRange();
         cut.selectNode(document.querySelector('.blank'));
-        
+        let width = document.querySelector(".formatt-text__bold");
         let select = window.getSelection().toString();
-        selected.select = select;
-        console.log(selected.select);
+        width.addEventListener("click", function (){
+            let text = e.target.innerHTML;
+            if(select != ""){
+            e.target.innerHTML = e.target.innerHTML.replace(select, `<b>${select}</b>`);
+         }
+        });
+
+    }
+    onMousedown(){
 
     }
 
